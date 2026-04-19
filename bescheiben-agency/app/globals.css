@@ -1,18 +1,21 @@
-/* Google Fonts DEVE vir antes do @import "tailwindcss" */
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
-
 @import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
 
 /* ── Tailwind v4 custom theme ── */
 @theme {
   --font-primary: 'Space Grotesk', sans-serif;
-  --color-brand:        #6B4EFF;
-  --color-brand-deep:   #4A32D4;
-  --color-brand-accent: #A58BFF;
-  --color-brand-light:  #C4B5FD;
-  --color-dark-950:     #06040F;
-  --color-dark-900:     #0A0A0F;
-  --color-dark-800:     #100D2A;
+
+  --color-brand:       #6B4EFF;
+  --color-brand-deep:  #4A32D4;
+  --color-brand-accent:#A58BFF;
+  --color-brand-light: #C4B5FD;
+  --color-dark-950:    #06040F;
+  --color-dark-900:    #0A0A0F;
+  --color-dark-800:    #100D2A;
+  --color-dark-700:    #16133A;
+
+  --shadow-brand:    0 4px 20px rgba(107,78,255,0.3);
+  --shadow-brand-lg: 0 8px 40px rgba(107,78,255,0.4);
 }
 
 /* ── Base ── */
@@ -24,9 +27,10 @@ body  {
   font-family: 'Space Grotesk', sans-serif;
   overflow-x: hidden;
 }
-::-webkit-scrollbar       { width: 4px; }
-::-webkit-scrollbar-track { background: #0A0A0F; }
-::-webkit-scrollbar-thumb { background: #6B4EFF; border-radius: 2px; }
+
+::-webkit-scrollbar        { width: 4px; }
+::-webkit-scrollbar-track  { background: #0A0A0F; }
+::-webkit-scrollbar-thumb  { background: #6B4EFF; border-radius: 2px; }
 ::selection { background: rgba(107,78,255,0.3); color: #fff; }
 
 /* ── Grid bg ── */
@@ -60,7 +64,7 @@ body  {
   background-clip: text;
 }
 
-/* ── Hero gradient animation ── */
+/* ── Hero animated gradient ── */
 @keyframes heroPulse {
   0%   { background-position: 0% 50%; }
   50%  { background-position: 100% 50%; }
@@ -181,11 +185,11 @@ body  {
   filter: blur(60px);
 }
 
-/* ── Section spacing ── */
+/* ── Sections ── */
 .section-padding { padding: 5rem 0; }
 @media (min-width: 768px) { .section-padding { padding: 7rem 0; } }
 
-/* ── Card lift hover ── */
+/* ── Card hover lift ── */
 .card-lift {
   transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
   cursor: default;
@@ -213,5 +217,11 @@ body  {
   100% { transform: translateX(-33.333%); }
 }
 .marquee-track { animation: marquee 30s linear infinite; }
+
+/* ── Float ── */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-10px); }
+}
 
 *:focus-visible { outline: 2px solid rgba(107,78,255,0.5); outline-offset: 3px; }
